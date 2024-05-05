@@ -3,8 +3,12 @@
 
 import os
 from sqlalchemy import Column, String, ForeignKey
-from models.base_model import BaseModel, Base
 from sqlalchemy.orm import relationship
+
+
+from models.base_model import BaseModel
+from models.base_model import Base
+
 
 
 class City(BaseModel, Base):
