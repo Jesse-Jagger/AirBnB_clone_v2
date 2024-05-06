@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """This module defines a base(main) class for all models in our hbnb clone"""
 
+import json
 import uuid
 from datetime import datetime
 from sqlalchemy.ext.declarative import declarative_base
@@ -15,6 +16,10 @@ class BaseModel:
     id = Column(String(60), nullable=False, primary_key=True, unique=True)
     created_at = Column(DATETIME, nullable=False, default=datetime.utcnow())
     updated_at = Column(DATETIME, nullable=False, default=datetime.utcnow())
+
+    def to_json(self):
+        """Converts the object instance to a JSON-serializable dictionary."""
+        return json.dumps(self.to_dict())
 
     def __init__(self, *args, **kwargs):
         """
